@@ -11,6 +11,9 @@ import ServiceDetail from './pages/ServiceDetail';
 import CaseStudyDetail from './pages/CaseStudyDetail';
 import CategoryPage from './pages/CategoryPage';
 import ProductDetail from './pages/ProductDetail';
+import CaseStudies from './pages/CaseStudies';
+import Pricing from './pages/Pricing';
+import Demo from './pages/Demo';
 import Contact from './pages/Contact';
 import Industries from './pages/Industries';
 import IndustryDetail from './pages/IndustryDetail';
@@ -31,11 +34,8 @@ import NotFound from './pages/NotFound';
 /* Pages still in the build queue. Each one states its planned sections so
    no navigation link ever dead-ends while the site is being built out. */
 const queued = [
-  { path: '/case-studies', title: 'Case studies', phase: 'Phase 4', sections: ['Filterable case study grid (industry, product, region)', 'Featured study', 'Results summary strip', 'Reference call CTA'] },
-  { path: '/pricing', title: 'Pricing', phase: 'Phase 4', sections: ['Monthly / annual toggle', 'Three plan cards', 'Full feature comparison matrix', 'Interactive ROI calculator', 'Deployment cost notes', 'Pricing FAQ', 'Sales CTA'] },
   { path: '/partners', title: 'Partners', phase: 'Phase 7', sections: ['Partner tiers', 'Become a partner form', 'Partner directory', 'Co-selling benefits'] },
   { path: '/newsroom', title: 'Newsroom', phase: 'Phase 7', sections: ['Press releases', 'Media coverage', 'Brand assets download', 'Press contact'] },
-  { path: '/demo', title: 'Book a demo', phase: 'Phase 4', sections: ['Two-step qualification form', 'Calendar slot picker', 'What to expect on the call', 'Trust signals sidebar'] },
   { path: '/privacy', title: 'Privacy policy', phase: 'Phase 7', sections: ['Data we collect', 'How we use it', 'Sub-processors', 'Your rights', 'Contact the DPO'] },
   { path: '/terms', title: 'Terms of service', phase: 'Phase 7', sections: ['Service terms', 'Acceptable use', 'Liability', 'Termination'] },
   { path: '/security', title: 'Security & compliance', phase: 'Phase 7', sections: ['Certifications', 'Infrastructure security', 'Application security', 'Data handling and residency', 'Incident response', 'Request pentest summary'] },
@@ -55,7 +55,10 @@ export default function App() {
             <Route path="/services" element={<Services />} />
             <Route path="/technologies" element={<Technologies />} />
             <Route path="/services/:serviceSlug" element={<ServiceDetail />} />
+            <Route path="/case-studies" element={<CaseStudies />} />
             <Route path="/case-studies/:slug" element={<CaseStudyDetail />} />
+            <Route path="/pricing" element={<Pricing />} />
+            <Route path="/demo" element={<Demo />} />
             <Route path="/contact" element={<Contact />} />
             <Route path="/industries" element={<Industries />} />
             <Route path="/industries/:industrySlug" element={<IndustryDetail />} />
