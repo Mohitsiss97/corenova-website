@@ -179,6 +179,8 @@ export const caseStudies = [
 export const getCaseStudy = (slug) => caseStudies.find((c) => c.slug === slug);
 export const caseStudiesForService = (serviceSlug) =>
   caseStudies.filter((c) => c.services?.includes(serviceSlug));
+export const caseStudiesForIndustry = (industrySlug) =>
+  caseStudies.filter((c) => c.industry === industrySlug);
 
 export const testimonials = [
   {

@@ -38,7 +38,11 @@ src/
                            approach, stack, caseStudies and faqs — the fields the
                            /services/:slug template renders. 7 engagement models,
                            3 flagged `primary` for the Services page comparison
-    industries.js          9 verticals with pains + outcome metrics
+    industries.js          9 verticals: pains, measured outcomes, the product
+                           stack, the operational workflow the software has to
+                           survive, and the per-vertical regulatory load.
+                           `complianceCoverage` holds the controls that apply
+                           everywhere, so vertical pages stay specific
     technologies.js        10 stack groups, 89 technologies with depth levels.
                            `.NET & Microsoft Stack` is flagged `featured` and is
                            exported separately as `featuredGroup` so pages can
@@ -82,6 +86,7 @@ src/
     ArticleDetail.jsx      template for all 8 /blog/:slug pages; renders the
                            block list and derives the on-this-page contents
     IntegrationDetail.jsx  template for all 26 /integrations/:slug pages
+    IndustryDetail.jsx     template for all 9 /industries/:slug pages
     Docs.jsx               single-page docs shell: sticky sidebar, search over
                            `docsIndex`, endpoint and webhook tables
     Support.jsx            help centre: search, category browse, SLA, escalation
@@ -119,7 +124,7 @@ Technologies spotlight. Update them there.
 `src/hooks/useSeo.js` sets `document.title`, the meta description and the Open
 Graph pair per route, restoring the site defaults on unmount. Every page calls it;
 a route that does not gets the defaults rather than the previous page's title.
-All 120 built routes currently resolve to a unique title.
+All 130 built routes currently resolve to a unique title.
 
 ## Detail templates
 
@@ -152,11 +157,12 @@ sentence case (`'Fixed scope'`) while `engagementModels` uses title case.
 
 ## Built so far
 
-120 routes across 20 page components:
+130 routes across 22 page components:
 
 - Home, Products (faceted catalog), Services, Technologies, Contact, 404
 - 18 category pages and 45 product pages (`CategoryPage`, `ProductDetail`)
 - 11 service pages (`ServiceDetail`) and 5 case studies (`CaseStudyDetail`)
+- **Phase 3 — industries:** Industries and 9 vertical pages (`IndustryDetail`)
 - **Phase 5 — company:** About, How we work, Careers (filterable board) and
   10 job pages (`JobDetail`)
 - **Phase 6 — content & docs:** Blog and 8 articles (`ArticleDetail`),

@@ -12,6 +12,8 @@ import CaseStudyDetail from './pages/CaseStudyDetail';
 import CategoryPage from './pages/CategoryPage';
 import ProductDetail from './pages/ProductDetail';
 import Contact from './pages/Contact';
+import Industries from './pages/Industries';
+import IndustryDetail from './pages/IndustryDetail';
 import About from './pages/About';
 import Process from './pages/Process';
 import Careers from './pages/Careers';
@@ -29,8 +31,6 @@ import NotFound from './pages/NotFound';
 /* Pages still in the build queue. Each one states its planned sections so
    no navigation link ever dead-ends while the site is being built out. */
 const queued = [
-  { path: '/industries', title: 'Industries', phase: 'Phase 3', sections: ['Industry grid with outcome metrics', 'Cross-industry platform capabilities', 'Regulatory and compliance coverage', 'Featured case studies'] },
-  { path: '/industries/:industrySlug', title: 'Industry detail', phase: 'Phase 3', sections: ['Industry hero with named pain points', 'Outcome metrics', 'Recommended product stack', 'Workflow diagram', 'Compliance notes', 'Industry case study', 'CTA'] },
   { path: '/case-studies', title: 'Case studies', phase: 'Phase 4', sections: ['Filterable case study grid (industry, product, region)', 'Featured study', 'Results summary strip', 'Reference call CTA'] },
   { path: '/pricing', title: 'Pricing', phase: 'Phase 4', sections: ['Monthly / annual toggle', 'Three plan cards', 'Full feature comparison matrix', 'Interactive ROI calculator', 'Deployment cost notes', 'Pricing FAQ', 'Sales CTA'] },
   { path: '/partners', title: 'Partners', phase: 'Phase 7', sections: ['Partner tiers', 'Become a partner form', 'Partner directory', 'Co-selling benefits'] },
@@ -57,6 +57,8 @@ export default function App() {
             <Route path="/services/:serviceSlug" element={<ServiceDetail />} />
             <Route path="/case-studies/:slug" element={<CaseStudyDetail />} />
             <Route path="/contact" element={<Contact />} />
+            <Route path="/industries" element={<Industries />} />
+            <Route path="/industries/:industrySlug" element={<IndustryDetail />} />
             <Route path="/about" element={<About />} />
             <Route path="/process" element={<Process />} />
             <Route path="/careers" element={<Careers />} />
