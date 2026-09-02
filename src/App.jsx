@@ -14,6 +14,9 @@ import ProductDetail from './pages/ProductDetail';
 import CaseStudies from './pages/CaseStudies';
 import Pricing from './pages/Pricing';
 import Demo from './pages/Demo';
+import Partners from './pages/Partners';
+import Newsroom from './pages/Newsroom';
+import LegalPage from './pages/LegalPage';
 import Contact from './pages/Contact';
 import Industries from './pages/Industries';
 import IndustryDetail from './pages/IndustryDetail';
@@ -28,19 +31,7 @@ import Docs from './pages/Docs';
 import Support from './pages/Support';
 import Integrations from './pages/Integrations';
 import IntegrationDetail from './pages/IntegrationDetail';
-import Placeholder from './pages/Placeholder';
 import NotFound from './pages/NotFound';
-
-/* Pages still in the build queue. Each one states its planned sections so
-   no navigation link ever dead-ends while the site is being built out. */
-const queued = [
-  { path: '/partners', title: 'Partners', phase: 'Phase 7', sections: ['Partner tiers', 'Become a partner form', 'Partner directory', 'Co-selling benefits'] },
-  { path: '/newsroom', title: 'Newsroom', phase: 'Phase 7', sections: ['Press releases', 'Media coverage', 'Brand assets download', 'Press contact'] },
-  { path: '/privacy', title: 'Privacy policy', phase: 'Phase 7', sections: ['Data we collect', 'How we use it', 'Sub-processors', 'Your rights', 'Contact the DPO'] },
-  { path: '/terms', title: 'Terms of service', phase: 'Phase 7', sections: ['Service terms', 'Acceptable use', 'Liability', 'Termination'] },
-  { path: '/security', title: 'Security & compliance', phase: 'Phase 7', sections: ['Certifications', 'Infrastructure security', 'Application security', 'Data handling and residency', 'Incident response', 'Request pentest summary'] },
-  { path: '/cookies', title: 'Cookie policy', phase: 'Phase 7', sections: ['Cookie categories', 'Preference manager', 'Third-party cookies'] },
-];
 
 export default function App() {
   return (
@@ -73,14 +64,13 @@ export default function App() {
             <Route path="/support" element={<Support />} />
             <Route path="/integrations" element={<Integrations />} />
             <Route path="/integrations/:integrationSlug" element={<IntegrationDetail />} />
+            <Route path="/partners" element={<Partners />} />
+            <Route path="/newsroom" element={<Newsroom />} />
+            <Route path="/privacy" element={<LegalPage slug="privacy" />} />
+            <Route path="/terms" element={<LegalPage slug="terms" />} />
+            <Route path="/security" element={<LegalPage slug="security" />} />
+            <Route path="/cookies" element={<LegalPage slug="cookies" />} />
 
-            {queued.map((p) => (
-              <Route
-                key={p.path}
-                path={p.path}
-                element={<Placeholder title={p.title} phase={p.phase} sections={p.sections} />}
-              />
-            ))}
 
             <Route path="*" element={<NotFound />} />
           </Route>

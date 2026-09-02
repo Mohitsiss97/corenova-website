@@ -144,6 +144,15 @@ service pages, and `caseStudiesForService()` pulls the matching proof onto each
 service page. Engagement names are matched case-insensitively — `services` uses
 sentence case (`'Fixed scope'`) while `engagementModels` uses title case.
 
+## Legal pages are template copy
+
+`src/data/legal.js` holds the privacy, terms, security and cookie documents,
+rendered through `pages/LegalPage.jsx`. **The wording has not been reviewed by a
+lawyer.** It exists so the site is complete and internally consistent. Before this
+represents a real company, replace it with text your counsel has approved —
+especially the sub-processor list, retention periods and governing-law clause.
+There is a note to the same effect at the top of that file.
+
 ## Conventions
 
 - Content never lives in components — add it to `src/data/*` and the UI follows.
@@ -170,6 +179,5 @@ sentence case (`'Fixed scope'`) while `engagementModels` uses title case.
   pages (`IntegrationDetail`)
 - Shared shell: mega-menu nav, ⌘K search, footer, theme toggle
 
-Every other route renders `pages/Placeholder.jsx`, which names the page and lists
-the sections planned for it — so no link in the site dead-ends. The full queue is
-the `queued` array in `src/App.jsx`.
+Every route in `src/App.jsx` now resolves to a real page — the placeholder
+scaffolding has been removed. An unknown URL renders `NotFound`.
