@@ -1,0 +1,193 @@
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700;800&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* =====================================================================
+   THEME TOKENS — single source of truth. Re-skin the whole site here.
+   Values are space separated RGB channels so Tailwind can add opacity.
+   ===================================================================== */
+@layer base {
+  :root {
+    color-scheme: light;
+
+    /* Brand — electric blue */
+    --c-primary-50: 239 245 255;
+    --c-primary-100: 219 231 255;
+    --c-primary-200: 191 212 255;
+    --c-primary-300: 147 180 255;
+    --c-primary-400: 96 139 255;
+    --c-primary-500: 47 107 255;
+    --c-primary-600: 36 80 245;
+    --c-primary-700: 27 60 216;
+    --c-primary-800: 28 52 174;
+    --c-primary-900: 29 49 137;
+
+    /* Accent — violet + cyan for gradients */
+    --c-accent-400: 167 139 250;
+    --c-accent-500: 139 92 246;
+    --c-accent-600: 124 58 237;
+    --c-cyan-400: 34 211 238;
+    --c-cyan-500: 6 182 212;
+
+    /* Surfaces */
+    --c-bg: 248 250 252;
+    --c-surface: 255 255 255;
+    --c-surface-2: 241 245 249;
+    --c-surface-3: 226 232 240;
+    --c-border: 226 232 240;
+    --c-border-strong: 203 213 225;
+
+    /* Text */
+    --c-fg: 15 23 42;
+    --c-fg-muted: 71 85 105;
+    --c-fg-subtle: 100 116 139;
+
+    /* Status */
+    --c-success: 22 163 74;
+    --c-warning: 217 119 6;
+    --c-danger: 220 38 38;
+
+    --c-shadow: 15 23 42;
+  }
+
+  .dark {
+    color-scheme: dark;
+
+    --c-primary-50: 26 33 58;
+    --c-primary-100: 30 41 75;
+    --c-primary-200: 37 54 112;
+    --c-primary-300: 61 91 178;
+    --c-primary-400: 96 139 255;
+    --c-primary-500: 88 133 255;
+    --c-primary-600: 61 108 245;
+    --c-primary-700: 47 88 214;
+    --c-primary-800: 38 70 172;
+    --c-primary-900: 32 57 134;
+
+    --c-accent-400: 183 161 253;
+    --c-accent-500: 155 118 248;
+    --c-accent-600: 139 92 246;
+    --c-cyan-400: 103 232 249;
+    --c-cyan-500: 34 211 238;
+
+    --c-bg: 7 11 20;
+    --c-surface: 14 20 33;
+    --c-surface-2: 21 29 46;
+    --c-surface-3: 30 41 62;
+    --c-border: 32 43 65;
+    --c-border-strong: 48 62 89;
+
+    --c-fg: 241 245 249;
+    --c-fg-muted: 158 173 194;
+    --c-fg-subtle: 122 138 160;
+
+    --c-success: 52 199 123;
+    --c-warning: 245 175 66;
+    --c-danger: 248 113 113;
+
+    --c-shadow: 0 0 0;
+  }
+
+  * { @apply border-line; }
+
+  html {
+    scroll-behavior: smooth;
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  body {
+    @apply bg-bg text-fg font-sans antialiased;
+    text-rendering: optimizeLegibility;
+    min-height: 100dvh;
+  }
+
+  h1, h2, h3, h4, h5 { @apply font-display font-bold text-fg; }
+
+  ::selection { @apply bg-primary-500/25 text-fg; }
+
+  /* Focus visibility — never removed, only restyled */
+  :focus-visible {
+    @apply outline-none ring-2 ring-primary-500 ring-offset-2;
+    --tw-ring-offset-color: rgb(var(--c-bg));
+  }
+
+  /* Scrollbar */
+  ::-webkit-scrollbar { width: 11px; height: 11px; }
+  ::-webkit-scrollbar-track { background: rgb(var(--c-bg)); }
+  ::-webkit-scrollbar-thumb {
+    background: rgb(var(--c-border-strong));
+    border-radius: 99px;
+    border: 3px solid rgb(var(--c-bg));
+  }
+  ::-webkit-scrollbar-thumb:hover { background: rgb(var(--c-fg-subtle)); }
+}
+
+@layer components {
+  .container-page { @apply mx-auto w-full max-w-7xl px-5 sm:px-6 lg:px-8; }
+
+  /* Frosted surface used for cards, menus, sticky nav */
+  .glass {
+    @apply bg-surface/70 backdrop-blur-xl backdrop-saturate-150 border border-line;
+  }
+
+  .card-surface {
+    @apply rounded-2xl border border-line bg-surface shadow-xs;
+  }
+
+  /* Gradient text for headline accents */
+  .text-gradient {
+    @apply bg-clip-text text-transparent;
+    background-image: linear-gradient(100deg,
+      rgb(var(--c-primary-500)) 0%,
+      rgb(var(--c-accent-500)) 55%,
+      rgb(var(--c-cyan-400)) 100%);
+  }
+
+  /* 1px gradient border via mask — used on premium cards */
+  .ring-gradient {
+    position: relative;
+  }
+  .ring-gradient::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    padding: 1px;
+    background: linear-gradient(140deg,
+      rgb(var(--c-primary-500) / .55),
+      rgb(var(--c-accent-500) / .35) 45%,
+      transparent 75%);
+    -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+    pointer-events: none;
+  }
+
+  .grid-bg {
+    background-image: theme('backgroundImage.grid-pattern');
+    background-size: 56px 56px;
+  }
+
+  .mask-fade-b { mask-image: linear-gradient(to bottom, #000 55%, transparent 100%); }
+  .mask-fade-x { mask-image: linear-gradient(to right, transparent, #000 12%, #000 88%, transparent); }
+}
+
+@layer utilities {
+  .text-balance { text-wrap: balance; }
+  .text-pretty { text-wrap: pretty; }
+  .tnum { font-variant-numeric: tabular-nums; }
+  .no-scrollbar::-webkit-scrollbar { display: none; }
+  .no-scrollbar { scrollbar-width: none; }
+}
+
+/* Respect the user's motion preference everywhere */
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after {
+    animation-duration: .001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: .001ms !important;
+  }
+}
