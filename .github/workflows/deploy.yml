@@ -21,12 +21,6 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
-      # enablement: true turns Pages on and points it at Actions, so the repo
-      # needs no manual Settings > Pages step before the first deploy.
-      - uses: actions/configure-pages@v5
-        with:
-          enablement: true
-
       - uses: actions/setup-node@v4
         with:
           node-version: 20
