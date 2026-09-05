@@ -29,10 +29,9 @@ jobs:
       - run: npm ci
       - run: npm run build
 
-      # Pages has no SPA rewrite rule. Serving the app shell as 404.html makes
-      # a deep link like /corenova-website/products load React with the URL
-      # intact, so the router resolves it instead of showing GitHub's 404.
-      - run: cp dist/index.html dist/404.html
+      # `npm run build` also runs scripts/static-routes.mjs, which writes a
+      # real index.html at every route so Pages answers 200 on deep links,
+      # plus 404.html so unknown URLs still reach the router.
 
       - uses: actions/upload-pages-artifact@v3
         with:

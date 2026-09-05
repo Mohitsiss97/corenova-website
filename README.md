@@ -10,6 +10,22 @@ npm run build    # -> dist/
 npm run preview  # serve the production build
 ```
 
+## Deployment
+
+`npm run build` runs Vite and then `scripts/static-routes.mjs`, which writes a
+real `index.html` at every route (`dist/pricing/index.html`, and so on) plus
+`404.html`.
+
+GitHub Pages serves static files with no SPA rewrite, so without those files a
+deep link like `/pricing` would return HTTP **404** — the page rendered, because
+`404.html` is the app shell, but the status code was wrong and that breaks
+crawlers, link checkers and uptime monitors. With them every real route answers
+**200**, and only genuinely unknown URLs 404.
+
+The generator cross-checks itself against the `<Route>` declarations in
+`App.jsx` and **fails the build** if a route is declared but not covered, so a
+new page cannot silently ship as a 404.
+
 ## Brand — change identity in one place
 
 `src/data/brand.js` is the single source of truth for company identity: name,
