@@ -10,6 +10,7 @@ import {
 import useSeo from '../hooks/useSeo';
 
 import { getLegalDoc, legalDocList, formatLegalDate } from '../data/legal';
+import { emails } from '../data/brand';
 
 /**
  * Renders any document in data/legal.js. The table of contents is built from
@@ -150,8 +151,8 @@ export default function LegalPage({ slug }) {
 
               <p className={cx('mt-12 rounded-xl border border-line bg-surface-2 px-5 py-4 text-xs leading-relaxed text-fg-subtle')}>
                 Questions about this document? Write to{' '}
-                <a href="mailto:legal@corenova.tech" className="font-semibold text-primary-600 hover:underline dark:text-primary-400">
-                  legal@corenova.tech
+                <a href={`mailto:${emails.legal}`} className="font-semibold text-primary-600 hover:underline dark:text-primary-400">
+                  {emails.legal}
                 </a>{' '}
                 and a person will answer — we do not route legal enquiries to a bot.
               </p>

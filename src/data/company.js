@@ -2,6 +2,7 @@ import { Compass, Layers, ShieldCheck, Handshake, Gauge, Users } from 'lucide-re
 
 import { site } from './site.js';
 import { productCount } from './products.js';
+import { brand, cities } from './brand.js';
 
 /* ------------------------------------------------------------------ story */
 /* The founding narrative, kept as separate paragraphs so the About page can
@@ -62,12 +63,12 @@ export const values = [
 
 /* ------------------------------------------------------------------ timeline */
 export const timeline = [
-  { year: '2014', title: 'Four engineers, one room', body: 'Founded in Noida as a .NET consultancy. The first client, a mid-size distributor, is still with us.' },
-  { year: '2016', title: 'The first product', body: 'Nova ERP is extracted from three consecutive custom builds that kept solving the same ledger problem.' },
-  { year: '2018', title: 'Bengaluru engineering office', body: 'The second office opens. Headcount passes 90 and the catalog reaches nine products.' },
+  { year: '2014', title: 'Four engineers, one room', body: `Founded in ${cities.hq} as a .NET consultancy. The first client, a mid-size distributor, is still with us.` },
+  { year: '2016', title: 'The first product', body: `${brand.productPrefix} ERP is extracted from three consecutive custom builds that kept solving the same ledger problem.` },
+  { year: '2018', title: `${cities.engineering} engineering office`, body: 'The second office opens. Headcount passes 90 and the catalog reaches nine products.' },
   { year: '2020', title: 'Remote-first, permanently', body: 'Delivery goes fully distributed in eight weeks. It works well enough that we never moved back.' },
   { year: '2021', title: 'ISO 27001 and SOC 2', body: 'First external certification cycle. Security controls become product defaults rather than enterprise add-ons.' },
-  { year: '2022', title: 'Austin opens', body: 'Americas delivery on shifted rosters, so US clients get their standup in the morning rather than at night.' },
+  { year: '2022', title: `${cities.regional} opens`, body: 'Americas delivery on shifted rosters, so US clients get their standup in the morning rather than at night.' },
   { year: '2023', title: '500th deployment', body: 'The catalog passes 30 products. On-premise and private cloud become first-class targets, not exceptions.' },
   { year: '2024', title: 'Dubai and the Middle East practice', body: 'Fourth office. Data-residency work becomes a standing capability instead of a project add-on.' },
   { year: '2025', title: 'The .NET modernisation practice', body: 'Migration work becomes a named practice after the Northwind cutover lands with zero planned downtime.' },
@@ -80,7 +81,7 @@ export const leadership = [
     name: 'Ananya Deshmukh',
     role: 'Co-founder & Chief Executive',
     focus: 'Strategy, clients, the uncomfortable calls',
-    bio: 'Wrote the first version of what became Nova ERP. Still reviews every statement of work over $250k, mostly to delete things from it.',
+    bio: `Wrote the first version of what became ${brand.productPrefix} ERP. Still reviews every statement of work over $250k, mostly to delete things from it.`,
   },
   {
     name: 'Rahul Menon',

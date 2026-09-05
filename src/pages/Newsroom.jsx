@@ -11,6 +11,7 @@ import useSeo from '../hooks/useSeo';
 import {
   pressReleases, coverage, brandAssets, pressContact, pressTags, formatPressDate,
 } from '../data/newsroom';
+import { brand } from '../data/brand';
 
 const tagTone = { Product: 'primary', Company: 'accent', Customer: 'success', Compliance: 'warning' };
 
@@ -138,7 +139,7 @@ export default function Newsroom() {
           <Reveal className="mt-10">
             <div className="overflow-x-auto rounded-2xl border border-line">
               <table className="w-full min-w-[40rem] border-collapse text-left text-sm">
-                <caption className="sr-only">Media coverage of CoreNova</caption>
+                <caption className="sr-only">Media coverage of {brand.name}</caption>
                 <thead>
                   <tr className="bg-surface-2">
                     {['Publication', 'Headline', 'Type', 'Date'].map((h) => (

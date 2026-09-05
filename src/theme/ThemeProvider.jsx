@@ -1,6 +1,8 @@
 import { createContext, useContext, useEffect, useState, useCallback } from 'react';
 
-const STORAGE_KEY = 'corenova-theme';
+import { brand } from '../data/brand';
+
+const STORAGE_KEY = `${brand.slug}-theme`;
 const ThemeContext = createContext(null);
 
 /** Reads the stored choice, falling back to the OS preference. */

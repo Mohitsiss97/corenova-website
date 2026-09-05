@@ -7,6 +7,10 @@ import { site } from '../data/site';
 import { categories } from '../data/products';
 import { services } from '../data/services';
 import useSeo from '../hooks/useSeo';
+import { offices, hq } from '../data/brand';
+
+/** Distinct timezones across the offices, so the copy cannot drift from data. */
+const timezoneCount = new Set(offices.map((o) => o.tz)).size;
 
 const interests = [
   'Buying a product',
@@ -67,7 +71,7 @@ const inputCls = (bad) =>
 export default function Contact() {
   useSeo({
     title: 'Contact',
-    description: 'Talk to an engineer, not an SDR. Average first response is 3 working hours. Offices in Noida, Bengaluru, Austin and Dubai.',
+    description: `Talk to an engineer, not an SDR. Average first response is 3 working hours. Offices in ${offices.map((o) => o.city).join(', ')}.`,
   });
 
   const [values, setValues] = useState(initial);
@@ -138,7 +142,7 @@ export default function Contact() {
       >
         <div className="flex flex-wrap gap-2">
           <Badge tone="success">Avg first response: 3 hrs</Badge>
-          <Badge>4 offices · 3 timezones</Badge>
+          <Badge>{offices.length} offices · {timezoneCount} timezones</Badge>
           <Badge>NDA on request</Badge>
         </div>
       </PageHeader>
@@ -311,11 +315,11 @@ export default function Contact() {
                       </a>
                     </li>
                     <li>
-                      <a href={`tel:${site.phoneUS.replace(/[\s()]/g, '')}`} className="flex items-start gap-3 text-fg-muted transition-colors hover:text-fg">
+                      <a href={`tel:${site.phoneAlt.replace(/[\s()]/g, '')}`} className="flex items-start gap-3 text-fg-muted transition-colors hover:text-fg">
                         <Phone className="mt-0.5 h-4 w-4 shrink-0 text-primary-500" aria-hidden="true" />
                         <span>
                           <span className="block text-2xs font-bold uppercase tracking-wider text-fg-subtle">Americas</span>
-                          {site.phoneUS}
+                          {site.phoneAlt}
                         </span>
                       </a>
                     </li>
@@ -346,8 +350,8 @@ export default function Contact() {
         <Container>
           <SectionHeading
             eyebrow="Where we are"
-            title="Four offices, three timezones"
-            lead="Delivery runs out of India; client-facing teams sit in the region you do. Visitors are welcome — tell us a day ahead."
+            title={`${offices.length} offices, ${timezoneCount} timezones`}
+            lead={`Headquartered in ${hq.city}, with delivery teams in the region you operate in. Visitors are welcome — tell us a day ahead.`}
           />
           <RevealGroup className="mt-12 grid gap-4 sm:grid-cols-2 lg:grid-cols-4" step={0.06}>
             {site.offices.map((o) => (

@@ -9,6 +9,7 @@ import Logo from './Logo';
 import { Button, Badge, cx } from '../ui';
 import { useTheme } from '../../theme/ThemeProvider';
 import { categories, categoryGroups, productCount } from '../../data/products';
+import { brand, hosts } from '../../data/brand';
 import { services } from '../../data/services';
 import { industries } from '../../data/industries';
 
@@ -54,7 +55,7 @@ function ProductsPanel({ close }) {
       <div className="ring-gradient flex flex-col justify-between rounded-2xl bg-surface-2 p-5">
         <div>
           <Badge tone="primary" icon={Sparkles}>Featured</Badge>
-          <p className="mt-3 font-display text-[15px] font-bold text-fg">Nova Platform</p>
+          <p className="mt-3 font-display text-[15px] font-bold text-fg">{brand.suiteName} Platform</p>
           <p className="mt-1.5 text-xs leading-relaxed text-fg-muted">
             Every product shares one identity layer, one data model and one audit log — so integration stops being a project.
           </p>
@@ -193,7 +194,7 @@ export default function Navbar({ onOpenSearch }) {
         <div className="container-page flex h-9 items-center justify-between text-xs">
           <p className="flex items-center gap-2 text-fg-muted">
             <span className="h-1.5 w-1.5 rounded-full bg-success animate-pulse-dot" aria-hidden="true" />
-            Nova Flow 2.0 is live — no-code approvals across every product.
+            {brand.productPrefix} Flow 2.0 is live — no-code approvals across every product.
             <Link to="/blog" className="font-semibold text-primary-600 hover:underline dark:text-primary-400">
               Read the release notes
             </Link>
@@ -201,7 +202,7 @@ export default function Navbar({ onOpenSearch }) {
           <div className="flex items-center gap-5 text-fg-subtle">
             <Link to="/support" className="hover:text-fg">Support</Link>
             <Link to="/docs" className="hover:text-fg">Docs</Link>
-            <a href="https://app.corenova.tech" className="hover:text-fg">Customer login</a>
+            <a href={`https://${hosts.console}`} className="hover:text-fg">Customer login</a>
           </div>
         </div>
       </div>

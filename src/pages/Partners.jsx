@@ -12,6 +12,7 @@ import useSeo from '../hooks/useSeo';
 import {
   partnerTracks, partnerTiers, partnerSteps, partnerDirectory, partnerFaqs,
 } from '../data/partners';
+import { brand } from '../data/brand';
 
 export default function Partners() {
   useSeo({
@@ -141,7 +142,7 @@ export default function Partners() {
           <SectionHeading
             eyebrow="Directory"
             title="Partners you can work with today"
-            lead="Looking for local delivery? These teams are certified and actively running CoreNova implementations."
+            lead={`Looking for local delivery? These teams are certified and actively running ${brand.name} implementations.`}
           />
 
           <div className="mt-8 flex flex-wrap items-center gap-2">

@@ -5,14 +5,15 @@ import { ArrowRight, Play, Star, Check } from 'lucide-react';
 import { Button, Container, Counter, cx } from '../ui';
 import { stats } from '../../data/site';
 import { productCount, categoryCount } from '../../data/products';
+import { brand, hosts, productName } from '../../data/brand';
 
 /* A code-drawn product preview. No image assets, scales crisply, themes cleanly. */
 function AppPreview() {
   const rows = [
-    { name: 'Nova ERP', env: 'Production', health: 99.98, tone: 'success' },
-    { name: 'Nova People', env: 'Production', health: 99.96, tone: 'success' },
-    { name: 'Nova WMS', env: 'Production', health: 99.91, tone: 'success' },
-    { name: 'Nova Insight', env: 'Staging', health: 99.4, tone: 'warning' },
+    { name: productName('ERP'), env: 'Production', health: 99.98, tone: 'success' },
+    { name: productName('People'), env: 'Production', health: 99.96, tone: 'success' },
+    { name: productName('WMS'), env: 'Production', health: 99.91, tone: 'success' },
+    { name: productName('Insight'), env: 'Staging', health: 99.4, tone: 'warning' },
   ];
   const bars = [42, 58, 51, 73, 66, 88, 79, 95, 84, 100, 92, 97];
 
@@ -26,7 +27,7 @@ function AppPreview() {
           <span className="h-2.5 w-2.5 rounded-full bg-success/70" />
         </span>
         <span className="ml-2 truncate rounded-md border border-line bg-surface px-2.5 py-1 font-mono text-[10px] text-fg-subtle">
-          app.corenova.tech/console
+          {hosts.console}/console
         </span>
       </div>
 
@@ -119,7 +120,7 @@ export default function Hero() {
                 <span className="rounded-full bg-brand-gradient px-2.5 py-1 text-2xs font-bold uppercase tracking-wider text-white">
                   New
                 </span>
-                <span className="font-medium text-fg-muted">Nova Flow 2.0 — no-code approvals</span>
+                <span className="font-medium text-fg-muted">{brand.productPrefix} Flow 2.0 — no-code approvals</span>
                 <ArrowRight className="h-3.5 w-3.5 text-fg-subtle transition-transform group-hover:translate-x-0.5" aria-hidden="true" />
               </Link>
             </motion.div>

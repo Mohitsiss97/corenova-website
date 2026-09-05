@@ -13,6 +13,7 @@ import useSeo from '../hooks/useSeo';
 
 import { categories, getCategory, productsByCategory, deployments } from '../data/products';
 import { industries } from '../data/industries';
+import { brand } from '../data/brand';
 
 export default function CategoryPage() {
   const { categorySlug } = useParams();
@@ -20,7 +21,7 @@ export default function CategoryPage() {
 
   useSeo(category ? {
     title: `${category.name} software`,
-    description: `${category.tagline} ${category.count} production-ready products in the CoreNova ${category.short} range, deployable on cloud, private cloud or your own servers.`,
+    description: `${category.tagline} ${category.count} production-ready products in the ${brand.name} ${category.short} range, deployable on cloud, private cloud or your own servers.`,
   } : undefined);
 
   if (!category) return <NotFound />;

@@ -2,6 +2,7 @@ import { Package, Hammer, UsersRound } from 'lucide-react';
 
 import { productCount, categoryCount } from './products.js';
 import { serviceCount } from './services.js';
+import { brand } from './brand.js';
 
 /* The "routing layer" the research calls for: three distinct buyer paths,
    visible within the first scroll. */
@@ -62,7 +63,7 @@ export const differentiators = [
 ];
 
 export const platformFeatures = [
-  { title: 'Single sign-on everywhere', body: 'One identity across every CoreNova product and your existing IdP — SAML, OIDC and SCIM provisioning.' },
+  { title: 'Single sign-on everywhere', body: `One identity across every ${brand.name} product and your existing IdP — SAML, OIDC and SCIM provisioning.` },
   { title: 'Open APIs on every product', body: 'REST and GraphQL with webhooks, sandbox keys and versioned contracts. No feature is UI-only.' },
   { title: 'Audit log you can export', body: 'Every state change is recorded with actor, before/after and reason — streamable to your SIEM.' },
   { title: 'Same data model across apps', body: 'Customer, item, employee and location are shared entities. Integrations stop being a project.' },
@@ -78,9 +79,9 @@ export const caseStudies = [
     client: 'Atlas Manufacturing',
     industry: 'manufacturing',
     title: 'From four disconnected plants to one live production view',
-    summary: 'Replaced plant-level spreadsheets and a 12-year-old ERP with Nova ERP plus a shop-floor MES across four sites in 9 months.',
+    summary: `Replaced plant-level spreadsheets and a 12-year-old ERP with ${brand.productPrefix} ERP plus a shop-floor MES across four sites in 9 months.`,
     challenge: 'Four plants ran separate production trackers. Group-level output was compiled manually every Monday, so decisions were always a week stale, and stock accuracy sat at 84%.',
-    solution: 'Nova ERP as the single ledger, Nova Manufacturing on the shop floor with machine IoT ingest, and Nova WMS for barcode-accurate stores. Rolled out plant by plant with a two-week hypercare per site.',
+    solution: `${brand.productPrefix} ERP as the single ledger, ${brand.productPrefix} Manufacturing on the shop floor with machine IoT ingest, and ${brand.productPrefix} WMS for barcode-accurate stores. Rolled out plant by plant with a two-week hypercare per site.`,
     results: [
       { metric: '+18%', label: 'OEE across four plants' },
       { metric: '99.1%', label: 'stock accuracy, up from 84%' },
@@ -89,7 +90,7 @@ export const caseStudies = [
     ],
     quote: 'For the first time we can see all four plants on one screen, live. That changed how our Monday meeting works.',
     author: 'Group COO, Atlas Manufacturing',
-    stack: ['Nova ERP', 'Nova Manufacturing', 'Nova WMS', 'Azure', 'Power BI'],
+    stack: [`${brand.productPrefix} ERP`, `${brand.productPrefix} Manufacturing`, `${brand.productPrefix} WMS`, 'Azure', 'Power BI'],
   },
   {
     slug: 'northwind-dotnet-modernisation',
@@ -123,7 +124,7 @@ export const caseStudies = [
     title: '210 stores that keep billing when the internet dies',
     summary: 'Offline-first POS rollout across 210 outlets in 6 states, with loyalty and a unified stock ledger behind it.',
     challenge: 'Tier-3 stores lost 40–90 minutes of billing a week to connectivity drops. Online and store stock disagreed constantly, causing oversells every festive season.',
-    solution: 'Nova POS with a local-first data layer and conflict-free sync, Nova Stock as the single ledger across stores and warehouse, and Nova Loyalty for a unified customer profile.',
+    solution: `${brand.productPrefix} POS with a local-first data layer and conflict-free sync, ${brand.productPrefix} Stock as the single ledger across stores and warehouse, and ${brand.productPrefix} Loyalty for a unified customer profile.`,
     results: [
       { metric: '0 min', label: 'billing lost to outages' },
       { metric: '2.1s', label: 'average checkout time' },
@@ -132,7 +133,7 @@ export const caseStudies = [
     ],
     quote: 'The rollout team trained 900 cashiers in six weeks. Support tickets in month two were lower than month one.',
     author: 'VP Retail Operations, Solaris',
-    stack: ['Nova POS', 'Nova Stock', 'Nova Loyalty', 'AWS', 'React Native'],
+    stack: [`${brand.productPrefix} POS`, `${brand.productPrefix} Stock`, `${brand.productPrefix} Loyalty`, 'AWS', 'React Native'],
   },
   {
     slug: 'meridian-bank-iam',
@@ -141,9 +142,9 @@ export const caseStudies = [
     client: 'Meridian Bank',
     industry: 'fintech',
     title: 'Access reviews that used to take six weeks now take two days',
-    summary: 'Consolidated 31 applications behind Nova ID with adaptive access policies and automated quarterly certification.',
+    summary: `Consolidated 31 applications behind ${brand.productPrefix} ID with adaptive access policies and automated quarterly certification.`,
     challenge: 'Quarterly access certification was a six-week spreadsheet exercise across 31 apps and 4,200 staff. Two consecutive audits raised findings on orphaned accounts.',
-    solution: 'Nova ID as the identity plane with SCIM provisioning into every app, risk-based step-up authentication, and Nova Vault for privileged sessions with full recording.',
+    solution: `${brand.productPrefix} ID as the identity plane with SCIM provisioning into every app, risk-based step-up authentication, and ${brand.productPrefix} Vault for privileged sessions with full recording.`,
     results: [
       { metric: '2 days', label: 'per certification cycle' },
       { metric: '100%', label: 'apps SSO-integrated' },
@@ -152,7 +153,7 @@ export const caseStudies = [
     ],
     quote: 'Our auditors asked for evidence and we exported it in four minutes. That had never happened before.',
     author: 'Head of Information Security, Meridian Bank',
-    stack: ['Nova ID', 'Nova Vault', 'Private cloud', 'Kubernetes'],
+    stack: [`${brand.productPrefix} ID`, `${brand.productPrefix} Vault`, 'Private cloud', 'Kubernetes'],
   },
   {
     slug: 'kepler-health-his',
@@ -161,9 +162,9 @@ export const caseStudies = [
     client: 'Kepler Health',
     industry: 'healthcare',
     title: 'Cutting OPD wait times by 41% across six hospitals',
-    summary: 'Nova Care HIS replaced paper records and three legacy systems across a 1,400-bed hospital group.',
+    summary: `${brand.productPrefix} Care HIS replaced paper records and three legacy systems across a 1,400-bed hospital group.`,
     challenge: 'Registration, EMR, pharmacy and billing lived in separate systems. Patients queued at three counters, and 19% of insurance claims were rejected for coding errors.',
-    solution: 'Nova Care HIS end to end with integrated LIS, plus Nova Docs for scanned legacy records with OCR search. Phased by department with clinician champions in each.',
+    solution: `${brand.productPrefix} Care HIS end to end with integrated LIS, plus ${brand.productPrefix} Docs for scanned legacy records with OCR search. Phased by department with clinician champions in each.`,
     results: [
       { metric: '−41%', label: 'average OPD wait time' },
       { metric: '−28%', label: 'claim rejection rate' },
@@ -172,7 +173,7 @@ export const caseStudies = [
     ],
     quote: 'The clinicians stopped asking to go back to paper in about three weeks. That is the fastest I have seen.',
     author: 'Chief Medical Information Officer, Kepler Health',
-    stack: ['Nova Care HIS', 'Nova LIS', 'Nova Docs', 'On-premise', 'PostgreSQL'],
+    stack: [`${brand.productPrefix} Care HIS`, `${brand.productPrefix} LIS`, `${brand.productPrefix} Docs`, 'On-premise', 'PostgreSQL'],
   },
 ];
 
@@ -184,7 +185,7 @@ export const caseStudiesForIndustry = (industrySlug) =>
 
 export const testimonials = [
   {
-    quote: 'We evaluated four vendors. CoreNova was the only one that showed us a running system in the first meeting instead of a slide deck, and the product we saw is the product we got.',
+    quote: `We evaluated four vendors. ${brand.name} was the only one that showed us a running system in the first meeting instead of a slide deck, and the product we saw is the product we got.`,
     author: 'Priya Raghavan', role: 'Chief Operating Officer', company: 'Northwind Group', industry: 'Manufacturing',
   },
   {
@@ -200,7 +201,7 @@ export const testimonials = [
     author: 'Thomas Lindgren', role: 'IT Director', company: 'Ironclad Logistics', industry: 'Logistics',
   },
   {
-    quote: 'We needed on-premise because of regulation. Every other vendor offered a cut-down edition. CoreNova shipped the same product with the same upgrade path.',
+    quote: `We needed on-premise because of regulation. Every other vendor offered a cut-down edition. ${brand.name} shipped the same product with the same upgrade path.`,
     author: 'Ahmed Al-Rashid', role: 'Head of Technology', company: 'Meridian Bank', industry: 'Banking',
   },
   {

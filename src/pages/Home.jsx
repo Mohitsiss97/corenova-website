@@ -14,6 +14,7 @@ import { categories, productCount, categoryCount } from '../data/products';
 import { services, process, serviceCount } from '../data/services';
 import { industries } from '../data/industries';
 import { techCount, featuredGroup, otherGroups } from '../data/technologies';
+import { brand } from '../data/brand';
 import TechLogo from '../components/TechLogo';
 import useSeo from '../hooks/useSeo';
 import { buyerPaths, differentiators, platformFeatures, caseStudies, testimonials, plans, faqs } from '../data/content';
@@ -90,7 +91,7 @@ export default function Home() {
       <Section>
         <Container>
           <SectionHeading
-            eyebrow="Why CoreNova"
+            eyebrow={`Why ${brand.name}`}
             title="A product company that also builds custom — which is rarer than it sounds."
             lead="Most vendors are one or the other. Running both is why our custom work starts at 60% complete."
           />

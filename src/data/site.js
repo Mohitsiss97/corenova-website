@@ -1,28 +1,24 @@
 import { productCount, categoryCount } from './products.js';
+import { brand, emails, phones, offices, social } from './brand.js';
 
+/* `site` is a convenience view over brand.js — every value here comes from
+   there. Add new identity values to brand.js, not to this object. */
 export const site = {
-  name: 'CoreNova',
-  legalName: 'CoreNova Technologies Pvt. Ltd.',
-  tagline: 'Software that runs your business',
+  name: brand.name,
+  shortName: brand.shortName,
+  legalName: brand.legalName,
+  tagline: brand.tagline,
   description:
-    `CoreNova builds and ships enterprise software — ${productCount} ready-to-deploy products across ${categoryCount} categories, plus custom engineering teams for everything in between.`,
-  email: 'hello@corenova.tech',
-  sales: 'sales@corenova.tech',
-  phone: '+91 120 458 9000',
-  phoneUS: '+1 (415) 555 0142',
-  founded: 2014,
-  offices: [
-    { city: 'Noida', country: 'India', label: 'HQ', address: 'Tower B, Sector 62, Noida 201309', tz: 'IST (UTC+5:30)' },
-    { city: 'Bengaluru', country: 'India', label: 'Engineering', address: 'Indiranagar, Bengaluru 560038', tz: 'IST (UTC+5:30)' },
-    { city: 'Austin', country: 'USA', label: 'Americas', address: '600 Congress Ave, Austin, TX 78701', tz: 'CST (UTC-6)' },
-    { city: 'Dubai', country: 'UAE', label: 'Middle East', address: 'Business Bay, Dubai', tz: 'GST (UTC+4)' },
-  ],
-  social: [
-    { label: 'LinkedIn', href: 'https://linkedin.com' },
-    { label: 'GitHub', href: 'https://github.com' },
-    { label: 'X', href: 'https://x.com' },
-    { label: 'YouTube', href: 'https://youtube.com' },
-  ],
+    `${brand.name} builds and ships enterprise software — ${productCount} ready-to-deploy products across ${categoryCount} categories, plus custom engineering teams for everything in between.`,
+  email: emails.general,
+  sales: emails.sales,
+  phone: phones[0].number,
+  phoneLabel: phones[0].label,
+  phoneAlt: phones[1].number,
+  phoneAltLabel: phones[1].label,
+  founded: brand.founded,
+  offices,
+  social,
 };
 
 export const stats = [

@@ -291,7 +291,7 @@ export default function Support() {
             {[
               { label: 'Support email', value: site.email, href: `mailto:${site.email}`, hint: 'First response in 3 working hours on average' },
               { label: 'India & APAC', value: site.phone, href: `tel:${site.phone.replace(/\s/g, '')}`, hint: 'IST business hours, P1 any time on Enterprise' },
-              { label: 'Americas', value: site.phoneUS, href: `tel:${site.phoneUS.replace(/[\s()]/g, '')}`, hint: 'CST business hours, shifted roster' },
+              { label: site.phoneAltLabel, value: site.phoneAlt, href: `tel:${site.phoneAlt.replace(/[\s()]/g, '')}`, hint: 'Regional business hours, shifted roster' },
             ].map((c) => (
               <a
                 key={c.label}

@@ -10,6 +10,26 @@ npm run build    # -> dist/
 npm run preview  # serve the production build
 ```
 
+## Brand — change identity in one place
+
+`src/data/brand.js` is the single source of truth for company identity: name,
+wordmark, legal name, tagline, domain, email addresses, host names, phone
+numbers, offices, the product suite prefix and the logo glyph. Nothing else in
+`src/` hardcodes any of it — `site.js` is a thin view over `brand.js`, and every
+page interpolates from there.
+
+Renaming the company, moving the head office or changing the product suite name
+is a single edit to that file. Two files must be updated alongside it because
+they cannot import JS:
+
+- `public/favicon.svg` — carries the same path data as `brand.logo.glyph`
+- `vite.config.js` — substitutes the brand values into `index.html` at build
+  time through the small `brandHtml` plugin (index.html uses `%BRAND_NAME%`
+  style placeholders)
+
+`brand.slug` also drives the theme's localStorage key and the cookie names
+documented on the cookie policy page, so those stay consistent automatically.
+
 ## Theming
 
 `src/index.css` is the **single source of truth** for colour. Light values live on

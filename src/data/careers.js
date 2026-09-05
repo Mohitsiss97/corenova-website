@@ -1,6 +1,7 @@
 import {
   Banknote, HeartPulse, GraduationCap, Plane, Baby, Timer, Laptop, Trophy,
 } from 'lucide-react';
+import { cities } from './brand.js';
 
 /* ------------------------------------------------------------------ culture */
 export const culturePillars = [
@@ -61,7 +62,7 @@ export const employeeStories = [
     quote: 'I moved from IC to management and back to IC for a year when management was making me worse at the job. It cost me nothing. That is rarer than it should be.',
   },
   {
-    name: 'Marcus Bell', role: 'Staff SRE, Austin', tenure: '3 years',
+    name: 'Marcus Bell', role: `Staff SRE, ${cities.regional}`, tenure: '3 years',
     quote: 'The on-call rota is genuinely quiet because the people who get paged are the people who can change the design. That feedback loop fixes more than any process.',
   },
 ];
@@ -74,7 +75,7 @@ export const jobs = [
     id: 'senior-dotnet-engineer',
     title: 'Senior .NET Engineer',
     team: 'Engineering',
-    location: 'Noida',
+    location: `${cities.hq}`,
     remote: 'Hybrid or remote',
     type: 'Full-time',
     level: 'Senior (L4)',
@@ -104,7 +105,7 @@ export const jobs = [
     id: 'engineering-manager-platform',
     title: 'Engineering Manager, Platform',
     team: 'Engineering',
-    location: 'Bengaluru',
+    location: `${cities.engineering}`,
     remote: 'Hybrid',
     type: 'Full-time',
     level: 'Manager (M2)',
@@ -133,7 +134,7 @@ export const jobs = [
     id: 'staff-sre',
     title: 'Staff Site Reliability Engineer',
     team: 'Infrastructure',
-    location: 'Austin',
+    location: `${cities.regional}`,
     remote: 'Remote (US)',
     type: 'Full-time',
     level: 'Staff (L5)',
@@ -189,7 +190,7 @@ export const jobs = [
     id: 'security-engineer',
     title: 'Security Engineer',
     team: 'Security',
-    location: 'Noida',
+    location: `${cities.hq}`,
     remote: 'Hybrid',
     type: 'Full-time',
     level: 'Senior',
@@ -217,7 +218,7 @@ export const jobs = [
     id: 'qa-automation-engineer',
     title: 'QA Automation Engineer',
     team: 'Quality',
-    location: 'Bengaluru',
+    location: `${cities.engineering}`,
     remote: 'Hybrid or remote',
     type: 'Full-time',
     level: 'Mid',
@@ -301,7 +302,7 @@ export const jobs = [
     id: 'enterprise-account-executive',
     title: 'Enterprise Account Executive',
     team: 'Sales',
-    location: 'Austin',
+    location: `${cities.regional}`,
     remote: 'Remote (US)',
     type: 'Full-time',
     level: 'Senior',
@@ -328,7 +329,7 @@ export const jobs = [
     id: 'customer-success-manager',
     title: 'Customer Success Manager',
     team: 'Customer Success',
-    location: 'Noida',
+    location: `${cities.hq}`,
     remote: 'Hybrid',
     type: 'Full-time',
     level: 'Mid–Senior',

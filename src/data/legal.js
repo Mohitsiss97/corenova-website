@@ -1,3 +1,5 @@
+import { brand, emails } from './brand.js';
+
 /* ------------------------------------------------------------------
    Legal and trust documents.
 
@@ -20,7 +22,7 @@ export const legalDocs = {
     summary:
       'What we collect, why we collect it, who else touches it and how to get it deleted. Written to be read rather than to be defensible.',
     intro:
-      'This policy covers corenova.tech and the CoreNova products you access as a customer. Where you are our customer’s employee rather than our customer, your employer controls that data and we process it on their instructions — their policy governs, not this one.',
+      `This policy covers ${brand.domain} and the ${brand.name} products you access as a customer. Where you are our customer’s employee rather than our customer, your employer controls that data and we process it on their instructions — their policy governs, not this one.`,
     sections: [
       {
         id: 'what-we-collect',
@@ -81,7 +83,7 @@ export const legalDocs = {
         id: 'contact-dpo',
         heading: 'Contact',
         body: [
-          'Data protection enquiries: privacy@corenova.tech. Postal address is on the contact page. We aim to acknowledge within two working days.',
+          `Data protection enquiries: ${emails.privacy}. Postal address is on the contact page. We aim to acknowledge within two working days.`,
         ],
       },
     ],
@@ -95,7 +97,7 @@ export const legalDocs = {
     summary:
       'The agreement that applies when you use our products or website. Your signed order form takes precedence wherever the two disagree.',
     intro:
-      'These terms govern access to CoreNova products and this website. Where you have signed a master services agreement or order form with us, that document wins on any point these terms cover differently.',
+      `These terms govern access to ${brand.name} products and this website. Where you have signed a master services agreement or order form with us, that document wins on any point these terms cover differently.`,
     sections: [
       {
         id: 'the-service',
@@ -157,7 +159,7 @@ export const legalDocs = {
         id: 'law',
         heading: 'Governing law',
         body: [
-          'These terms are governed by the law named in your order form. Where none is named, the courts of the jurisdiction of the contracting CoreNova entity have exclusive jurisdiction.',
+          `These terms are governed by the law named in your order form. Where none is named, the courts of the jurisdiction of the contracting ${brand.name} entity have exclusive jurisdiction.`,
         ],
       },
     ],
@@ -252,10 +254,10 @@ export const legalDocs = {
         table: {
           head: ['Cookie', 'Purpose', 'Type', 'Expires'],
           rows: [
-            ['corenova-theme', 'Remembers whether you chose light or dark. Stored in localStorage, not sent to us.', 'Strictly necessary', 'Until cleared'],
-            ['cn_session', 'Keeps you signed in to the customer console.', 'Strictly necessary', 'Session'],
-            ['cn_csrf', 'Protects form submissions against cross-site request forgery.', 'Strictly necessary', 'Session'],
-            ['cn_analytics', 'Counts page views in aggregate. No cross-site identifier.', 'Analytics', '14 months'],
+            [`${brand.slug}-theme`, 'Remembers whether you chose light or dark. Stored in localStorage, not sent to us.', 'Strictly necessary', 'Until cleared'],
+            [`${brand.cookiePrefix}_session`, 'Keeps you signed in to the customer console.', 'Strictly necessary', 'Session'],
+            [`${brand.cookiePrefix}_csrf`, 'Protects form submissions against cross-site request forgery.', 'Strictly necessary', 'Session'],
+            [`${brand.cookiePrefix}_analytics`, 'Counts page views in aggregate. No cross-site identifier.', 'Analytics', '14 months'],
           ],
         },
       },

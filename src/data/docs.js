@@ -1,4 +1,5 @@
 import { Rocket, Key, Webhook, Boxes, Terminal, ShieldCheck } from 'lucide-react';
+import { brand, hosts } from './brand.js';
 
 /* Documentation content for the /docs shell. Sections drive the sidebar, the
    search index and the rendered body, so nothing can appear in the nav without
@@ -23,7 +24,7 @@ export const quickstarts = [
     steps: [
       'Register an endpoint under Settings → Developers → Webhooks',
       'Subscribe to invoice.paid and copy the signing secret',
-      'Verify the X-Nova-Signature header before trusting any payload',
+      'Verify the X-${brand.productPrefix}-Signature header before trusting any payload',
       'Replay the last 24 hours of events from the dashboard to test your handler',
     ],
   },
@@ -33,7 +34,7 @@ export const quickstarts = [
     audience: 'Administrators',
     steps: [
       'Choose SAML 2.0 or OIDC under Settings → Authentication',
-      'Map directory groups to CoreNova roles before enabling enforcement',
+      `Map directory groups to ${brand.name} roles before enabling enforcement`,
       'Enable SCIM provisioning so leavers deprovision automatically',
       'Keep one break-glass local admin account with MFA enforced',
     ],
@@ -62,12 +63,12 @@ export const docsSections = [
         title: 'Platform overview',
         summary: 'How products, tenants, environments and the shared data model fit together.',
         blocks: [
-          { type: 'p', text: 'Every CoreNova product runs on one platform. That means a single identity plane, one permission model and a shared set of core entities — customer, item, employee, location — that every product reads from rather than duplicating.' },
+          { type: 'p', text: `Every ${brand.name} product runs on one platform. That means a single identity plane, one permission model and a shared set of core entities — customer, item, employee, location — that every product reads from rather than duplicating.` },
           { type: 'p', text: 'A tenant is your organisation. Within a tenant you have environments: at minimum production and sandbox, with additional staging environments available on Growth and Enterprise plans. Sandbox carries the same API contract as production and is free to call.' },
           { type: 'ul', items: [
             'Tenant — your organisation, billed as one account',
             'Environment — production, sandbox or staging, each with isolated data and its own keys',
-            'Product — an application enabled for the tenant, such as Nova ERP or Nova HRMS',
+            `Product — an application enabled for the tenant, such as ${brand.productPrefix} ERP or ${brand.productPrefix} HRMS`,
             'Module — a functional area within a product, gated by permission keys',
           ] },
         ],
@@ -100,7 +101,7 @@ export const docsSections = [
         summary: 'Bearer tokens, scoping, rotation and what to do when a key leaks.',
         blocks: [
           { type: 'p', text: 'All API requests authenticate with a bearer token in the Authorization header. Keys are scoped to one environment and carry an explicit permission key set — a key can never do more than the role it was issued against.' },
-          { type: 'code', lang: 'bash', text: 'curl https://api.corenova.tech/v1/customers \\\n  -H "Authorization: Bearer sk_live_..." \\\n  -H "X-Nova-Version: 2026-06-01"' },
+          { type: 'code', lang: 'bash', text: `curl https://${hosts.api}/v1/customers \\\n  -H "Authorization: Bearer sk_live_..." \\\n  -H "X-${brand.productPrefix}-Version: 2026-06-01"` },
           { type: 'p', text: 'Rotate keys from the dashboard at any time. Rotation issues the new key immediately and keeps the old one valid for a grace window you choose, up to 72 hours, so a rotation never requires a deployment window.' },
           { type: 'note', text: 'If a key leaks, revoke it rather than rotating it. Revocation is immediate and has no grace window.' },
         ],
@@ -129,13 +130,13 @@ export const docsSections = [
         blocks: [
           { type: 'p', text: 'The API is REST over HTTPS with JSON bodies. A GraphQL endpoint covering the same entities is available at /graphql for read-heavy clients. Every capability in the UI has an API equivalent — there are no UI-only features.' },
           { type: 'ul', items: [
-            'Versioning — pinned by the X-Nova-Version date header; a version stays supported for 24 months',
+            'Versioning — pinned by the X-${brand.productPrefix}-Version date header; a version stays supported for 24 months',
             'Pagination — cursor based, via a starting_after parameter and a has_more flag',
             'Errors — RFC 9457 problem+json with a stable machine-readable type',
             'Idempotency — send an Idempotency-Key header on every POST; retries are safe for 24 hours',
             'Rate limits — 1,000 requests per minute per environment, returned in RateLimit headers',
           ] },
-          { type: 'code', lang: 'json', text: '{\n  "type": "https://docs.corenova.tech/errors/validation",\n  "title": "Validation failed",\n  "status": 422,\n  "errors": [{ "field": "email", "rule": "format" }]\n}' },
+          { type: 'code', lang: 'json', text: `{\n  "type": "https://${hosts.docs}/errors/validation",\n  "title": "Validation failed",\n  "status": 422,\n  "errors": [{ "field": "email", "rule": "format" }]\n}` },
         ],
       },
     ],

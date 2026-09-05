@@ -2,6 +2,7 @@ import {
   CreditCard, Key, Landmark, MessageSquare, ShoppingCart, Truck,
   TrendingUp, Users, Database, Phone,
 } from 'lucide-react';
+import { brand } from './brand.js';
 
 /* Integration directory. Categories carry the icon so a card, a filter chip and
    a detail page all render the same mark without repeating it per record. */
@@ -23,7 +24,7 @@ export const integrations = [
     slug: 'stripe', name: 'Stripe', category: 'payments',
     tagline: 'Cards, wallets and subscriptions, reconciled to the invoice.',
     direction: 'Bidirectional', auth: 'API key + webhook signing secret', setup: '~30 min',
-    products: ['Nova Billing', 'Nova ERP', 'Nova POS'],
+    products: [`${brand.productPrefix} Billing`, `${brand.productPrefix} ERP`, `${brand.productPrefix} POS`],
     description:
       'Charges, refunds, disputes and payout reconciliation. Webhooks land as ledger events, so a payout in Stripe matches a bank line in the ERP without a spreadsheet in between.',
     capabilities: ['Card, wallet and bank debit charges', 'Subscription and metered billing sync', 'Automatic payout reconciliation', 'Dispute and chargeback events', 'Refunds initiated from either side'],
@@ -32,7 +33,7 @@ export const integrations = [
     slug: 'razorpay', name: 'Razorpay', category: 'payments',
     tagline: 'UPI, cards and netbanking for Indian collections.',
     direction: 'Bidirectional', auth: 'API key pair + webhook secret', setup: '~30 min',
-    products: ['Nova Billing', 'Nova ERP', 'Nova POS'],
+    products: [`${brand.productPrefix} Billing`, `${brand.productPrefix} ERP`, `${brand.productPrefix} POS`],
     description:
       'Full UPI support including collect requests and autopay mandates, with settlement files parsed into the ledger and GST-compliant invoice references carried on every charge.',
     capabilities: ['UPI collect and intent flows', 'Autopay mandates for subscriptions', 'Settlement file reconciliation', 'Payment links from any invoice', 'Instant refunds where supported'],
@@ -41,7 +42,7 @@ export const integrations = [
     slug: 'adyen', name: 'Adyen', category: 'payments',
     tagline: 'Multi-region acquiring for groups selling across borders.',
     direction: 'Bidirectional', auth: 'API key + HMAC webhook', setup: '~1 day',
-    products: ['Nova Billing', 'Nova POS'],
+    products: [`${brand.productPrefix} Billing`, `${brand.productPrefix} POS`],
     description:
       'For retailers operating in several markets under one group. Local payment methods per market, one reconciliation model, and terminal integration for in-store capture.',
     capabilities: ['Local payment methods per market', 'In-store terminal capture', 'Multi-currency settlement', 'Unified reporting across channels'],
@@ -77,7 +78,7 @@ export const integrations = [
     slug: 'quickbooks', name: 'QuickBooks Online', category: 'finance',
     tagline: 'Journals, invoices and payments into the books.',
     direction: 'Outbound', auth: 'OAuth 2.0', setup: '~2 hrs',
-    products: ['Nova ERP', 'Nova Billing'],
+    products: [`${brand.productPrefix} ERP`, `${brand.productPrefix} Billing`],
     description:
       'Summary or detail-level journal posting on a schedule you choose, with a reconciliation report per run listing anything that failed to post and why. Nothing posts silently.',
     capabilities: ['Journal entry posting', 'Invoice and credit note sync', 'Customer and vendor master sync', 'Chart of accounts mapping UI', 'Per-run reconciliation report'],
@@ -86,7 +87,7 @@ export const integrations = [
     slug: 'xero', name: 'Xero', category: 'finance',
     tagline: 'Small-business accounting sync with mapped tax codes.',
     direction: 'Outbound', auth: 'OAuth 2.0', setup: '~2 hrs',
-    products: ['Nova ERP', 'Nova Billing'],
+    products: [`${brand.productPrefix} ERP`, `${brand.productPrefix} Billing`],
     description:
       'Invoices, bills and payments pushed to Xero with an explicit tax-code mapping step during setup, because inferring tax treatment is the fastest way to create work for an accountant.',
     capabilities: ['Invoice and bill sync', 'Payment allocation', 'Explicit tax code mapping', 'Contact master sync'],
@@ -95,7 +96,7 @@ export const integrations = [
     slug: 'tally', name: 'Tally Prime', category: 'finance',
     tagline: 'The books most Indian mid-market finance teams still close in.',
     direction: 'Outbound', auth: 'Local connector + shared secret', setup: '~1 day',
-    products: ['Nova ERP', 'Nova Billing'],
+    products: [`${brand.productPrefix} ERP`, `${brand.productPrefix} Billing`],
     description:
       'A local connector service posts vouchers into Tally over XML, including GST fields, and reads back voucher numbers so both systems reference the same document.',
     capabilities: ['Sales, purchase and journal vouchers', 'GST field mapping', 'Voucher number write-back', 'Runs on-premise beside Tally'],
@@ -122,7 +123,7 @@ export const integrations = [
     slug: 'twilio', name: 'Twilio', category: 'communication',
     tagline: 'Transactional SMS and WhatsApp with delivery receipts.',
     direction: 'Outbound', auth: 'Account SID + auth token', setup: '~20 min',
-    products: ['Nova CRM', 'Nova Care HIS', 'Nova POS'],
+    products: [`${brand.productPrefix} CRM`, `${brand.productPrefix} Care HIS`, `${brand.productPrefix} POS`],
     description:
       'Templated SMS and WhatsApp messaging with per-message delivery status written back to the record, so a failed appointment reminder is visible to the person who needs to act on it.',
     capabilities: ['Templated SMS and WhatsApp', 'Delivery receipts on the record', 'Per-country sender configuration', 'Opt-out list enforcement'],
@@ -131,7 +132,7 @@ export const integrations = [
     slug: 'shopify', name: 'Shopify', category: 'commerce',
     tagline: 'One stock ledger across storefront, stores and warehouse.',
     direction: 'Bidirectional', auth: 'OAuth 2.0 private app', setup: '~half day',
-    products: ['Nova Stock', 'Nova ERP', 'Nova POS'],
+    products: [`${brand.productPrefix} Stock`, `${brand.productPrefix} ERP`, `${brand.productPrefix} POS`],
     description:
       'Orders flow in, fulfilment and stock levels flow out. The stock ledger stays in one place so the storefront cannot sell what the warehouse has already committed.',
     capabilities: ['Order and refund ingest', 'Stock level publishing', 'Product and variant sync', 'Fulfilment and tracking write-back', 'Multi-location inventory'],
@@ -140,7 +141,7 @@ export const integrations = [
     slug: 'woocommerce', name: 'WooCommerce', category: 'commerce',
     tagline: 'WordPress storefronts on the same ledger as everything else.',
     direction: 'Bidirectional', auth: 'REST API key pair', setup: '~half day',
-    products: ['Nova Stock', 'Nova ERP'],
+    products: [`${brand.productPrefix} Stock`, `${brand.productPrefix} ERP`],
     description:
       'The same order and inventory contract as the Shopify connector, over the WooCommerce REST API, including tax and shipping line handling for orders that span both channels.',
     capabilities: ['Order ingest with tax and shipping lines', 'Stock and price publishing', 'Product sync with variations', 'Refund handling'],
@@ -149,7 +150,7 @@ export const integrations = [
     slug: 'amazon-marketplace', name: 'Amazon Marketplace', category: 'commerce',
     tagline: 'Marketplace orders in the same queue as everything else.',
     direction: 'Bidirectional', auth: 'SP-API LWA credentials', setup: '~1 day',
-    products: ['Nova Stock', 'Nova ERP'],
+    products: [`${brand.productPrefix} Stock`, `${brand.productPrefix} ERP`],
     description:
       'Selling Partner API integration for order ingest, inventory publishing and settlement report parsing, so marketplace fees land in the ledger rather than as an unexplained variance.',
     capabilities: ['Order ingest via SP-API', 'Inventory feed publishing', 'Settlement report reconciliation', 'Fee breakdown into the ledger'],
@@ -158,7 +159,7 @@ export const integrations = [
     slug: 'delhivery', name: 'Delhivery', category: 'logistics',
     tagline: 'Domestic Indian shipping with label generation.',
     direction: 'Bidirectional', auth: 'API token', setup: '~2 hrs',
-    products: ['Nova WMS', 'Nova Stock', 'Nova ERP'],
+    products: [`${brand.productPrefix} WMS`, `${brand.productPrefix} Stock`, `${brand.productPrefix} ERP`],
     description:
       'Rate lookup, manifest and label generation, and tracking webhooks that update the order without anyone pasting an AWB number into a form.',
     capabilities: ['Rate lookup at checkout', 'Label and manifest generation', 'Tracking webhooks on the order', 'Return pickup scheduling', 'COD remittance reconciliation'],
@@ -167,7 +168,7 @@ export const integrations = [
     slug: 'dhl-express', name: 'DHL Express', category: 'logistics',
     tagline: 'Cross-border shipping with customs documentation.',
     direction: 'Bidirectional', auth: 'API credentials', setup: '~half day',
-    products: ['Nova WMS', 'Nova ERP'],
+    products: [`${brand.productPrefix} WMS`, `${brand.productPrefix} ERP`],
     description:
       'International rates, commercial invoice and customs paperwork generated from the order, plus duty estimates surfaced before the customer commits rather than after.',
     capabilities: ['International rate quotes', 'Commercial invoice generation', 'Customs documentation', 'Landed-cost estimation', 'Tracking events on the order'],
@@ -176,7 +177,7 @@ export const integrations = [
     slug: 'shiprocket', name: 'Shiprocket', category: 'logistics',
     tagline: 'Multi-carrier aggregation without per-carrier work.',
     direction: 'Bidirectional', auth: 'API token', setup: '~2 hrs',
-    products: ['Nova Stock', 'Nova ERP'],
+    products: [`${brand.productPrefix} Stock`, `${brand.productPrefix} ERP`],
     description:
       'One connector across many Indian carriers, with courier selection rules you control — cheapest, fastest, or best serviceability for the destination pincode.',
     capabilities: ['Multi-carrier rate comparison', 'Rule-based courier selection', 'Unified tracking events', 'NDR and RTO handling'],
@@ -212,7 +213,7 @@ export const integrations = [
     slug: 'darwinbox', name: 'Darwinbox', category: 'hr',
     tagline: 'Employee master data with one clear owner.',
     direction: 'Inbound', auth: 'API key', setup: '~half day',
-    products: ['Nova HRMS', 'Nova ERP'],
+    products: [`${brand.productPrefix} HRMS`, `${brand.productPrefix} ERP`],
     description:
       'Employee, org unit and cost centre data flows one way by design. Two systems that both believe they own the employee record is the most expensive integration mistake we see.',
     capabilities: ['Employee and org-unit sync', 'Cost centre mapping', 'Joiner, mover and leaver events', 'Conflict reporting rather than silent overwrite'],
@@ -221,7 +222,7 @@ export const integrations = [
     slug: 'workday', name: 'Workday', category: 'hr',
     tagline: 'Enterprise HCM as the system of record for people.',
     direction: 'Inbound', auth: 'OAuth 2.0 / SOAP', setup: '~1 week',
-    products: ['Nova HRMS', 'Nova ERP'],
+    products: [`${brand.productPrefix} HRMS`, `${brand.productPrefix} ERP`],
     description:
       'Scheduled worker and organisation extracts with position-level detail, mapped into permissions and approval hierarchies so an org change updates who can approve what.',
     capabilities: ['Worker and position extracts', 'Organisation hierarchy sync', 'Approval chain derivation', 'Termination-driven deprovisioning'],
@@ -230,7 +231,7 @@ export const integrations = [
     slug: 'sharepoint', name: 'SharePoint & OneDrive', category: 'storage',
     tagline: 'Documents where your retention policy already applies.',
     direction: 'Bidirectional', auth: 'Azure app registration', setup: '~2 hrs',
-    products: ['Nova Docs', 'Nova ERP', 'Nova HRMS'],
+    products: [`${brand.productPrefix} Docs`, `${brand.productPrefix} ERP`, `${brand.productPrefix} HRMS`],
     description:
       'Attachments live in your tenant rather than ours, with links from the record. Your existing retention, DLP and eDiscovery policies keep applying without a second policy to maintain.',
     capabilities: ['Attachment storage in your tenant', 'Folder templates per record type', 'Permission inheritance from the record', 'Retention and DLP policy pass-through'],
@@ -248,7 +249,7 @@ export const integrations = [
     slug: 'exotel', name: 'Exotel', category: 'telephony',
     tagline: 'Click to dial and recordings attached to the record.',
     direction: 'Bidirectional', auth: 'API key + webhook', setup: '~2 hrs',
-    products: ['Nova CRM', 'Nova Care HIS'],
+    products: [`${brand.productPrefix} CRM`, `${brand.productPrefix} Care HIS`],
     description:
       'Cloud telephony with screen pop on inbound calls, click-to-dial from any contact, and call recordings linked to the customer record under the same retention rules as everything else.',
     capabilities: ['Click to dial from any record', 'Inbound screen pop with caller match', 'Call recording linked to the record', 'IVR routing by account owner'],

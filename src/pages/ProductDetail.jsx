@@ -14,6 +14,7 @@ import useSeo from '../hooks/useSeo';
 import { getCategory, getProduct, productsByCategory } from '../data/products';
 import { industries } from '../data/industries';
 import { caseStudies } from '../data/content';
+import { brand, hosts } from '../data/brand';
 
 const badgeTone = { Flagship: 'primary', Popular: 'accent', New: 'success', AI: 'warning' };
 
@@ -29,7 +30,7 @@ function ProductPreview({ product, category }) {
           <span className="h-2.5 w-2.5 rounded-full bg-success/70" />
         </span>
         <span className="ml-2 truncate rounded-md border border-line bg-surface px-2.5 py-1 font-mono text-[10px] text-fg-subtle">
-          app.corenova.tech/{product.slug.replace('nova-', '')}
+          {hosts.console}/{product.slug.replace(`${brand.productPrefix.toLowerCase()}-`, '')}
         </span>
       </div>
 
